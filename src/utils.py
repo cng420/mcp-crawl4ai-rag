@@ -14,6 +14,9 @@ import time
 # Load OpenAI API key for embeddings
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
+# Global cache for source UUIDs to minimize lookups during a run
+source_uuid_cache: Dict[str, str] = {}
+
 def get_supabase_client() -> Client:
     """
     Get a Supabase client with the URL and key from environment variables.
@@ -268,17 +271,21 @@ def add_documents_to_supabase(
             parsed_url = urlparse(batch_urls[j])
             source_id = parsed_url.netloc or parsed_url.path
             
-            # Prepare data for insertion
+            # Get or create a UUID for this domain in the `sources` table
+            if source_id not in source_uuid_cache:
+                # We're not sure about the summary/word-count here, but ensure the row exists so we can get the UUID
+                source_uuid_cache[source_id] = update_source_info(client, source_id, summary="", word_count=0)
+
             data = {
                 "url": batch_urls[j],
                 "chunk_number": batch_chunk_numbers[j],
-                "content": contextual_contents[j],  # Store original content
+                "content": contextual_contents[j],  # Store original content (with context if enabled)
                 "metadata": {
                     "chunk_size": chunk_size,
                     **batch_metadatas[j]
                 },
-                "source_id": source_id,  # Add source_id field
-                "embedding": batch_embeddings[j]  # Use embedding from contextual content
+                "source_id": source_uuid_cache[source_id],  # FK to sources.id
+                "embedding": batch_embeddings[j]
             }
             
             batch_data.append(data)
@@ -354,6 +361,45 @@ def search_documents(
         print(f"Error searching documents: {e}")
         return []
 
+def search_table_documents(
+    client: Client,
+    query: str,
+    table_name: str,
+    embedding_column: str = "embedding",
+    content_column: str = "content",
+    metadata_column: str = "metadata",
+    match_count: int = 10,
+    filter_metadata: Optional[Dict[str, Any]] = None
+) -> List[Dict[str, Any]]:
+    """
+    Generic search for documents in any table with embeddings.
+    Args:
+        client: Supabase client
+        query: Query text
+        table_name: Name of the table to search
+        embedding_column: Name of the embedding column
+        content_column: Name of the content column
+        metadata_column: Name of the metadata column
+        match_count: Maximum number of results to return
+        filter_metadata: Optional metadata filter
+    Returns:
+        List of matching documents
+    """
+    query_embedding = create_embedding(query)
+    try:
+        params = {
+            'query_embedding': query_embedding,
+            'match_count': match_count
+        }
+        if filter_metadata:
+            params['filter'] = filter_metadata
+        # Use a generic RPC naming convention: match_{table_name}
+        rpc_name = f"match_{table_name}"
+        result = client.rpc(rpc_name, params).execute()
+        return result.data
+    except Exception as e:
+        print(f"Error searching table {table_name}: {e}")
+        return []
 
 def extract_code_blocks(markdown_content: str, min_length: int = 1000) -> List[Dict[str, Any]]:
     """
@@ -557,7 +603,7 @@ def add_code_examples_to_supabase(
                 'content': code_examples[idx],
                 'summary': summaries[idx],
                 'metadata': metadatas[idx],  # Store as JSON object, not string
-                'source_id': source_id,
+                'source': source_id,
                 'embedding': embedding
             })
         
@@ -594,98 +640,67 @@ def add_code_examples_to_supabase(
         print(f"Inserted batch {i//batch_size + 1} of {(total_items + batch_size - 1)//batch_size} code examples")
 
 
-def update_source_info(client: Client, source_id: str, summary: str, word_count: int):
+def update_source_info(
+    client: Client,
+    source: str,
+    summary: str,
+    word_count: int,
+    table_name: str = "crawled_pages",
+) -> Optional[str]:
+    """Upsert a source row and return its UUID (sources.id).
+
+    The `sources` table schema contains both an integer primary key (`source_id`) and a
+    UUID column (`id`).  The `crawled_pages` and `code_examples` tables reference the
+    UUID.  This helper guarantees that a row exists for the given domain and that
+    `table_name` is always populated.
     """
-    Update or insert source information in the sources table.
-    
-    Args:
-        client: Supabase client
-        source_id: The source ID (domain)
-        summary: Summary of the source
-        word_count: Total word count for the source
-    """
+
     try:
-        # Try to update existing source
-        result = client.table('sources').update({
-            'summary': summary,
-            'total_word_count': word_count,
-            'updated_at': 'now()'
-        }).eq('source_id', source_id).execute()
-        
-        # If no rows were updated, insert new source
-        if not result.data:
-            client.table('sources').insert({
-                'source_id': source_id,
-                'summary': summary,
-                'total_word_count': word_count
-            }).execute()
-            print(f"Created new source: {source_id}")
-        else:
-            print(f"Updated source: {source_id}")
-            
-    except Exception as e:
-        print(f"Error updating source {source_id}: {e}")
-
-
-def extract_source_summary(source_id: str, content: str, max_length: int = 500) -> str:
-    """
-    Extract a summary for a source from its content using an LLM.
-    
-    This function uses the OpenAI API to generate a concise summary of the source content.
-    
-    Args:
-        source_id: The source ID (domain)
-        content: The content to extract a summary from
-        max_length: Maximum length of the summary
-        
-    Returns:
-        A summary string
-    """
-    # Default summary if we can't extract anything meaningful
-    default_summary = f"Content from {source_id}"
-    
-    if not content or len(content.strip()) == 0:
-        return default_summary
-    
-    # Get the model choice from environment variables
-    model_choice = os.getenv("MODEL_CHOICE")
-    
-    # Limit content length to avoid token limits
-    truncated_content = content[:25000] if len(content) > 25000 else content
-    
-    # Create the prompt for generating the summary
-    prompt = f"""<source_content>
-{truncated_content}
-</source_content>
-
-The above content is from the documentation for '{source_id}'. Please provide a concise summary (3-5 sentences) that describes what this library/tool/framework is about. The summary should help understand what the library/tool/framework accomplishes and the purpose.
-"""
-    
-    try:
-        # Call the OpenAI API to generate the summary
-        response = openai.chat.completions.create(
-            model=model_choice,
-            messages=[
-                {"role": "system", "content": "You are a helpful assistant that provides concise library/tool/framework summaries."},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=0.3,
-            max_tokens=150
+        # 1. Look for an existing row
+        existing = (
+            client.table("sources")
+            .select("id, total_word_count, total_words")
+            .eq("source", source)
+            .limit(1)
+            .execute()
         )
-        
-        # Extract the generated summary
-        summary = response.choices[0].message.content.strip()
-        
-        # Ensure the summary is not too long
-        if len(summary) > max_length:
-            summary = summary[:max_length] + "..."
-            
-        return summary
-    
-    except Exception as e:
-        print(f"Error generating summary with LLM for {source_id}: {e}. Using default summary.")
-        return default_summary
 
+        if existing.data:
+            source_uuid = existing.data[0]["id"]
+
+            # Update mutable fields
+            client.table("sources").update(
+                {
+                    "summary": summary or existing.data[0].get("summary"),
+                    "total_word_count": word_count or existing.data[0].get("total_word_count"),
+                    "total_words": word_count or existing.data[0].get("total_words"),
+                    "table_name": table_name,
+                    "updated_at": "now()",
+                }
+            ).eq("id", source_uuid).execute()
+            return source_uuid
+
+        # 2. Insert new source row
+        inserted = (
+            client.table("sources")
+            .insert(
+                {
+                    "source": source,
+                    "table_name": table_name,
+                    "summary": summary,
+                    "total_word_count": word_count,
+                    "total_words": word_count,
+                }
+            )
+            .execute()
+        )
+
+        source_uuid = inserted.data[0]["id"]
+        return source_uuid
+
+    except Exception as e:
+        print(f"Error upserting source {source}: {e}")
+        return None
 
 def search_code_examples(
     client: Client, 
@@ -736,3 +751,57 @@ def search_code_examples(
     except Exception as e:
         print(f"Error searching code examples: {e}")
         return []
+
+def extract_source_summary(source_id: str, content: str) -> str:
+    """Generate a concise summary for a documentation **source**.
+
+    This helper is used to populate the `summary` column of the `sources` table. It
+    takes the first few thousand characters of a document (already truncated by the
+    caller) and produces a short human-readable overview (2-3 sentences).
+
+    It will attempt to leverage the OpenAI chat completion API if a model name is
+    provided via the `MODEL_CHOICE` environment variable. If the request fails for
+    any reason, we gracefully fall back to a heuristic summary consisting of the
+    first ~50 words of *content*.
+
+    Args:
+        source_id: The domain / identifier of the source (e.g. "docs.python.org").
+        content:   A snippet of the page contents (markdown / text) to summarise.
+
+    Returns:
+        A short summary string.
+    """
+    if not content:
+        return ""
+
+    model_choice = os.getenv("MODEL_CHOICE")
+
+    # Attempt to call OpenAI for a higher-quality summary when possible
+    if model_choice:
+        prompt = (
+            f"<source_id>\n{source_id}\n</source_id>\n\n"
+            f"<content>\n{content[:4000]}\n</content>\n\n"
+            "Provide a concise 2-3 sentence summary of the overall topic and purpose "
+            "of this documentation source. Do not mention that you are an AI model."
+        )
+        try:
+            response = openai.chat.completions.create(
+                model=model_choice,
+                messages=[
+                    {
+                        "role": "system",
+                        "content": "You are a helpful assistant that writes concise summaries.",
+                    },
+                    {"role": "user", "content": prompt},
+                ],
+                temperature=0.3,
+                max_tokens=120,
+            )
+            return response.choices[0].message.content.strip()
+        except Exception as e:
+            print(f"Error generating source summary with OpenAI: {e}. Falling back to heuristic summary.")
+
+    # Heuristic fallback: return the first ~50 words followed by ellipsis
+    words = re.findall(r"\w+", content)
+    fallback_summary = " ".join(words[:50]) + ("…" if len(words) > 50 else "")
+    return fallback_summary
