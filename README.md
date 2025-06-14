@@ -10,6 +10,19 @@ With this MCP server, you can <b>scrape anything</b> and then <b>use that knowle
 
 The primary goal is to bring this MCP server into [Archon](https://github.com/coleam00/Archon) as I evolve it to be more of a knowledge engine for AI coding assistants to build AI agents. This first version of the Crawl4AI/RAG MCP server will be improved upon greatly soon, especially making it more configurable so you can use different embedding models and run everything locally with Ollama.
 
+## Recent Updates (Refactor PR #1)
+
+This project recently underwent a significant refactoring (Tracked in PR #1) focused on improving documentation organization and enhancing the robustness of core utility functions in `src/utils.py`. Key changes include:
+
+*   **Centralized Documentation:** All project documentation, including SQL schema files, environment examples, and tracking documents (logs, bugs, quality audits), have been moved into a dedicated `docs/` directory for better organization and accessibility.
+*   **Enhanced Utility Functions (`src/utils.py`):**
+    *   **UUID-based Source Management:** Implemented `get_or_create_source_uuid` to use true UUIDs for identifying and managing data sources, improving data integrity.
+    *   **Robust Embedding Workflows:** Refactored `create_embeddings_batch` to handle empty inputs more gracefully, implement retry/backoff logic for API calls, and ensure correct mapping of embeddings to their original text positions.
+    *   **Modernized API Calls:** Updated OpenAI API calls across multiple functions to use the latest `max_completion_tokens` parameter, replacing deprecated ones.
+    *   **Improved Data Ingestion:** Revised `add_documents_to_supabase` and `update_source_info` to utilize the new UUID-based source management and to perform atomic upsert operations for source information, enhancing reliability.
+
+These changes lay a stronger foundation for future development and make the project more maintainable and easier to understand.
+
 ## Overview
 
 This MCP server provides tools that enable AI agents to crawl websites, store content in a vector database (Supabase), and perform RAG over the crawled content. It follows the best practices for building MCP servers based on the [Mem0 MCP server template](https://github.com/coleam00/mcp-mem0/) I provided on my channel previously.

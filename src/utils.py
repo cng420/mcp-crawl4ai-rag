@@ -107,12 +107,25 @@ def create_embeddings_batch(texts: List[str]) -> List[List[float]]:
     if texts_to_embed: # Proceed only if there are valid texts to embed
         for retry in range(max_retries):
             try:
-                response = openai.embeddings.create(
+                api_response = openai.embeddings.create(
                     model="text-embedding-3-small",
                     input=texts_to_embed
                 )
-                embeddings_for_valid_texts = [item.embedding for item in response.data]
-                break  # Success from batch processing
+
+                if len(api_response.data) == len(texts_to_embed):
+                    # This list comprehension will raise AttributeError if any item in api_response.data
+                    # does not have an 'embedding' attribute (e.g., it's an error object).
+                    # This exception will be caught by the outer 'except Exception as e:' block,
+                    # leading to the fallback logic, which is the desired behavior for partial failures.
+                    current_embeddings = [item.embedding for item in api_response.data]
+                    embeddings_for_valid_texts = current_embeddings
+                    break  # Success: batch processing completed and all items yielded embeddings.
+                else:
+                    # If the API returns a list of a different length than the input,
+                    # without the client library raising an exception, this is an unexpected state.
+                    # We force a fallback to ensure all texts are processed.
+                    print(f"Warning: Batch embedding API returned {len(api_response.data)} items for {len(texts_to_embed)} inputs. Triggering fallback.")
+                    raise ValueError("Batch embedding response length mismatch, ensuring all texts are processed individually.")
             except Exception as e:
                 if retry < max_retries - 1:
                     print(f"Error creating batch embeddings (attempt {retry + 1}/{max_retries}): {e}")
@@ -249,159 +262,153 @@ def add_documents_to_supabase(
         url_to_full_document: Dictionary mapping URLs to their full document content
         batch_size: Size of each batch for insertion
     """
+    domain_to_uuid_cache: Dict[str, Optional[str]] = {} # Initialize cache for source UUIDs
+
     # Get unique URLs to delete existing records
-    unique_urls = list(set(urls))
+    unique_urls_to_delete = list(set(urls))
     
-    # Delete existing records for these URLs in a single operation
     try:
-        if unique_urls:
-            # Use the .in_() filter to delete all records with matching URLs
-            client.table("crawled_pages").delete().in_("url", unique_urls).execute()
+        if unique_urls_to_delete:
+            client.table("crawled_pages").delete().in_("url", unique_urls_to_delete).execute()
     except Exception as e:
         print(f"Batch delete failed: {e}. Trying one-by-one deletion as fallback.")
-        # Fallback: delete records one by one
-        for url in unique_urls:
+        for url_del in unique_urls_to_delete:
             try:
-                client.table("crawled_pages").delete().eq("url", url).execute()
+                client.table("crawled_pages").delete().eq("url", url_del).execute()
             except Exception as inner_e:
-                print(f"Error deleting record for URL {url}: {inner_e}")
-                # Continue with the next URL even if one fails
+                print(f"Error deleting record for URL {url_del}: {inner_e}")
     
-    # Check if MODEL_CHOICE is set for contextual embeddings
     use_contextual_embeddings = os.getenv("USE_CONTEXTUAL_EMBEDDINGS", "false") == "true"
     print(f"\n\nUse contextual embeddings: {use_contextual_embeddings}\n\n")
     
-    # Process in batches to avoid memory issues
     for i in range(0, len(contents), batch_size):
         batch_end = min(i + batch_size, len(contents))
         
-        # Get batch slices
-        batch_urls = urls[i:batch_end]
-        batch_chunk_numbers = chunk_numbers[i:batch_end]
-        batch_contents = contents[i:batch_end]
-        batch_metadatas = metadatas[i:batch_end]
+        # Initial slices for the current main batch
+        _current_batch_urls = urls[i:batch_end]
+        _current_batch_chunk_numbers = chunk_numbers[i:batch_end]
+        _current_batch_contents = contents[i:batch_end]
+        _current_batch_metadatas = metadatas[i:batch_end]
         
-        # --- START MODIFICATION for source_id UUID ---
-        batch_source_uuids = []
-        for url_in_batch in batch_urls:
-            parsed_url_for_source = urlparse(url_in_batch)
-            domain_name_for_source = parsed_url_for_source.netloc or parsed_url_for_source.path # Fallback to path if netloc is empty
-            if not domain_name_for_source: # Ensure domain_name is not empty
-                print(f"Warning: Could not determine domain for URL {url_in_batch}. Skipping source UUID fetch.")
-                batch_source_uuids.append(None) # Or a default UUID / error handling
+        # 1. Get source UUIDs for the current batch, using cache
+        _current_batch_source_uuids: List[Optional[str]] = []
+        for url_in_sub_batch in _current_batch_urls:
+            parsed_url_for_source = urlparse(url_in_sub_batch)
+            domain_name_for_source = parsed_url_for_source.netloc or parsed_url_for_source.path
+            if not domain_name_for_source:
+                print(f"Warning: Could not determine domain for URL {url_in_sub_batch}. Will skip this record.")
+                _current_batch_source_uuids.append(None)
                 continue
             
-            # Assuming a generic table_name for sources related to 'crawled_pages'
-            # This might need to be more dynamic if sources map to different types of tables.
-            table_name_for_this_source = f"crawled_pages_{domain_name_for_source.replace('.', '_').replace('-', '_')}" # Default/example table name
+            source_uuid: Optional[str] = None
+            if domain_name_for_source in domain_to_uuid_cache:
+                source_uuid = domain_to_uuid_cache[domain_name_for_source]
+            else:
+                table_name_for_this_source = f"crawled_pages_{domain_name_for_source.replace('.', '_').replace('-', '_')}"
+                source_uuid = get_or_create_source_uuid(client, domain_name_for_source, table_name_for_this_source)
+                domain_to_uuid_cache[domain_name_for_source] = source_uuid # Cache the result
             
-            source_uuid = get_or_create_source_uuid(client, domain_name_for_source, table_name_for_this_source)
-            batch_source_uuids.append(source_uuid)
-        # --- END MODIFICATION for source_id UUID ---
+            _current_batch_source_uuids.append(source_uuid)
 
-        # Apply contextual embedding to each chunk if MODEL_CHOICE is set
-        if use_contextual_embeddings:
-            # Prepare arguments for parallel processing
-            process_args = []
-            for j, content in enumerate(batch_contents):
-                url = batch_urls[j]
-                full_document = url_to_full_document.get(url, "")
-                process_args.append((url, content, full_document))
+        # 2. Filter items: only keep those with a valid source_uuid
+        final_batch_urls: List[str] = []
+        final_batch_chunk_numbers: List[int] = []
+        final_batch_contents: List[str] = []
+        final_batch_metadatas: List[Dict[str, Any]] = []
+        final_batch_source_uuids: List[str] = [] # Guaranteed to be str, not Optional[str]
+
+        for k in range(len(_current_batch_urls)):
+            source_uuid_val = _current_batch_source_uuids[k]
+            if source_uuid_val:
+                final_batch_urls.append(_current_batch_urls[k])
+                final_batch_chunk_numbers.append(_current_batch_chunk_numbers[k])
+                final_batch_contents.append(_current_batch_contents[k])
+                final_batch_metadatas.append(_current_batch_metadatas[k])
+                final_batch_source_uuids.append(source_uuid_val)
+            else:
+                print(f"Warning: URL {_current_batch_urls[k]} is being skipped due to missing source UUID (no embedding/contextualization performed).")
+
+        if not final_batch_contents: # If all items in this batch were filtered out
+            print(f"Info: All items in batch starting at original index {i} were skipped due to missing source UUIDs.")
+            continue
+
+        # 3. Apply contextual embedding (if enabled) to the filtered batch
+        contextual_contents: List[str]
+        if use_contextual_embeddings and final_batch_contents:
+            contextual_results_ordered = [None] * len(final_batch_contents)
             
-            # Process in parallel using ThreadPoolExecutor
-            contextual_contents = []
             with concurrent.futures.ThreadPoolExecutor(max_workers=10) as executor:
-                # Submit all tasks and collect results
-                future_to_idx = {executor.submit(process_chunk_with_context, arg): idx 
-                                for idx, arg in enumerate(process_args)}
+                future_to_final_idx = {}
+                for j_final, content_final in enumerate(final_batch_contents):
+                    url_final = final_batch_urls[j_final]
+                    full_document = url_to_full_document.get(url_final, "")
+                    future = executor.submit(process_chunk_with_context, (url_final, content_final, full_document))
+                    future_to_final_idx[future] = j_final
                 
-                # Process results as they complete
-                for future in concurrent.futures.as_completed(future_to_idx):
-                    idx = future_to_idx[future]
+                for future in concurrent.futures.as_completed(future_to_final_idx):
+                    j_final_idx = future_to_final_idx[future]
                     try:
-                        result, success = future.result()
-                        contextual_contents.append(result)
-                        if success:
-                            batch_metadatas[idx]["contextual_embedding"] = True
+                        result_text, success_flag = future.result()
+                        contextual_results_ordered[j_final_idx] = result_text
+                        if success_flag:
+                            final_batch_metadatas[j_final_idx]["contextual_embedding"] = True
                     except Exception as e:
-                        print(f"Error processing chunk {idx}: {e}")
-                        # Use original content as fallback
-                        contextual_contents.append(batch_contents[idx])
-            
-            # Sort results back into original order if needed
-            if len(contextual_contents) != len(batch_contents):
-                print(f"Warning: Expected {len(batch_contents)} results but got {len(contextual_contents)}")
-                # Use original contents as fallback
-                contextual_contents = batch_contents
-        else:
-            # If not using contextual embeddings, use original contents
-            contextual_contents = batch_contents
-        
-        # Create embeddings for the entire batch at once
+                        print(f"Error processing chunk for URL {final_batch_urls[j_final_idx]} (final index {j_final_idx}): {e}. Using original content.")
+                        contextual_results_ordered[j_final_idx] = final_batch_contents[j_final_idx] # Fallback
+            contextual_contents = contextual_results_ordered
+        elif final_batch_contents: # Not using contextual embeddings, but have content
+            contextual_contents = final_batch_contents
+        else: # Should have been caught by "if not final_batch_contents" already
+            contextual_contents = []
+
+
+        # 4. Create embeddings for the (filtered and potentially contextualized) batch
         batch_embeddings = create_embeddings_batch(contextual_contents)
         
-        batch_data = []
-        for j in range(len(contextual_contents)):
-            # Extract metadata fields
-            chunk_size = len(contextual_contents[j])
-            
-            # Extract source_id from URL - NOW USING THE FETCHED/CREATED UUID
-            # parsed_url = urlparse(batch_urls[j]) # Original line
-            # source_id = parsed_url.netloc or parsed_url.path # Original line
-            
-            # --- START MODIFICATION: Use fetched UUID ---
-            current_source_uuid = batch_source_uuids[j]
-            if not current_source_uuid:
-                print(f"Warning: Missing source UUID for URL {batch_urls[j]}. Skipping this record for crawled_pages.")
-                # Or handle by not inserting, or inserting with a null/default source_id if schema allows
-                continue 
-            # --- END MODIFICATION: Use fetched UUID ---
-
-            # Prepare data for insertion
+        # 5. Prepare batch_data for insertion (all items here are valid and have a source_id)
+        batch_data_to_insert = []
+        for j_final in range(len(contextual_contents)):
+            # All lists (final_batch_*, contextual_contents, batch_embeddings) are aligned and filtered
             data = {
-                "url": batch_urls[j],
-                "chunk_number": batch_chunk_numbers[j],
-                "content": contextual_contents[j],  # Store original content
+                "url": final_batch_urls[j_final],
+                "chunk_number": final_batch_chunk_numbers[j_final],
+                "content": contextual_contents[j_final],
                 "metadata": {
-                    "chunk_size": chunk_size,
-                    **batch_metadatas[j]
+                    "chunk_size": len(contextual_contents[j_final]),
+                    **final_batch_metadatas[j_final]
                 },
-                "source_id": current_source_uuid,  # MODIFIED: Use the actual UUID
-                "embedding": batch_embeddings[j]  # Use embedding from contextual content
+                "source_id": final_batch_source_uuids[j_final], # Guaranteed not None
+                "embedding": batch_embeddings[j_final]
             }
+            batch_data_to_insert.append(data)
+        
+        # 6. Insert batch into Supabase (if batch_data_to_insert is not empty)
+        if batch_data_to_insert:
+            max_retries = 3
+            retry_delay = 1.0
             
-            batch_data.append(data)
-        
-        # Insert batch into Supabase with retry logic
-        max_retries = 3
-        retry_delay = 1.0  # Start with 1 second delay
-        
-        for retry in range(max_retries):
-            try:
-                client.table("crawled_pages").insert(batch_data).execute()
-                # Success - break out of retry loop
-                break
-            except Exception as e:
-                if retry < max_retries - 1:
-                    print(f"Error inserting batch into Supabase (attempt {retry + 1}/{max_retries}): {e}")
-                    print(f"Retrying in {retry_delay} seconds...")
-                    time.sleep(retry_delay)
-                    retry_delay *= 2  # Exponential backoff
-                else:
-                    # Final attempt failed
-                    print(f"Failed to insert batch after {max_retries} attempts: {e}")
-                    # Optionally, try inserting records one by one as a last resort
-                    print("Attempting to insert records individually...")
-                    successful_inserts = 0
-                    for record in batch_data:
-                        try:
-                            client.table("crawled_pages").insert(record).execute()
-                            successful_inserts += 1
-                        except Exception as individual_error:
-                            print(f"Failed to insert individual record for URL {record['url']}: {individual_error}")
-                    
-                    if successful_inserts > 0:
-                        print(f"Successfully inserted {successful_inserts}/{len(batch_data)} records individually")
+            for retry in range(max_retries):
+                try:
+                    client.table("crawled_pages").insert(batch_data_to_insert).execute()
+                    break # Success
+                except Exception as e:
+                    if retry < max_retries - 1:
+                        print(f"Error inserting batch into Supabase (attempt {retry + 1}/{max_retries}): {e}")
+                        print(f"Retrying in {retry_delay} seconds...")
+                        time.sleep(retry_delay)
+                        retry_delay *= 2
+                    else:
+                        print(f"Failed to insert batch after {max_retries} attempts: {e}. Attempting individual inserts.")
+                        successful_inserts = 0
+                        for record_idx, record in enumerate(batch_data_to_insert):
+                            try:
+                                client.table("crawled_pages").insert(record).execute()
+                                successful_inserts += 1
+                            except Exception as individual_error:
+                                print(f"Failed to insert individual record for URL {record.get('url', 'N/A')} (final index {record_idx}): {individual_error}")
+                        print(f"Successfully inserted {successful_inserts}/{len(batch_data_to_insert)} records individually after batch failure.")
+        else:
+            print(f"Info: No data to insert for batch starting at original index {i} after processing.")
 
 def search_documents(
     client: Client, 

@@ -141,17 +141,23 @@ def rerank_results(model: CrossEncoder, query: str, results: List[Dict[str, Any]
         print(f"Error during reranking: {e}")
         return results
 
+import re
+
 def is_sitemap(url: str) -> bool:
     """
     Check if a URL is a sitemap.
-    
+
     Args:
         url: URL to check
-        
+
     Returns:
         True if the URL is a sitemap, False otherwise
     """
-    return url.endswith('sitemap.xml') or 'sitemap' in urlparse(url).path
+    parsed = urlparse(url)
+    # Match if the last path segment is 'sitemap' or 'sitemap' with an extension (e.g., sitemap.xml, sitemap.gz)
+    sitemap_pattern = re.compile(r'^sitemap(\.[a-zA-Z0-9]+)?$')
+    path_segments = [segment for segment in parsed.path.split('/') if segment]
+    return bool(path_segments and sitemap_pattern.match(path_segments[-1]))
 
 def is_txt(url: str) -> bool:
     """
