@@ -27,6 +27,10 @@ def get_or_create_source_uuid(client: Client, domain_name: str, table_name_for_s
     Returns:
         The UUID string of the source, or None if an error occurred.
     """
+    if not domain_name or not domain_name.strip():
+        print(f"Error: domain_name cannot be empty or None")
+        return None
+        
     try:
         # Check if the source already exists
         response = client.table("sources").select("id").eq("source", domain_name).maybe_single().execute()
