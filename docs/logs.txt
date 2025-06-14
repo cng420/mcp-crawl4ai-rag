@@ -1,0 +1,955 @@
+dev@cng420-ubuntu-dev:~/mcp/mcp-crawl4ai-rag (main)$ docker run --env-file .env -p 8051:8051 mcp/crawl4ai-rag
+INFO:     Started server process [1]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8051 (Press CTRL+C to quit)
+INFO:     172.17.0.1:63120 - "POST /sse HTTP/1.1" 405 Method Not Allowed
+INFO:     172.17.0.1:63126 - "GET /sse HTTP/1.1" 200 OK
+INFO:     172.17.0.1:63136 - "POST /messages/?session_id=06b85380f6834594b5e45445bf73e6a7 HTTP/1.1" 202 Accepted
+INFO:     172.17.0.1:63142 - "POST /messages/?session_id=06b85380f6834594b5e45445bf73e6a7 HTTP/1.1" 202 Accepted
+INFO:     172.17.0.1:63156 - "POST /messages/?session_id=06b85380f6834594b5e45445bf73e6a7 HTTP/1.1" 202 Accepted
+[06/14/25 08:41:09] INFO     Processing request of type            server.py:534
+                             ListToolsRequest                                   
+INFO:     172.17.0.1:63170 - "POST /messages/?session_id=06b85380f6834594b5e45445bf73e6a7 HTTP/1.1" 202 Accepted
+                    INFO     Processing request of type            server.py:534
+                             ListToolsRequest                                   
+INFO:     172.17.0.1:63176 - "POST /messages/?session_id=06b85380f6834594b5e45445bf73e6a7 HTTP/1.1" 202 Accepted
+[06/14/25 08:41:10] INFO     Processing request of type            server.py:534
+                             ListToolsRequest                                   
+INFO:     172.17.0.1:63180 - "POST /messages/?session_id=06b85380f6834594b5e45445bf73e6a7 HTTP/1.1" 202 Accepted
+                    INFO     Processing request of type            server.py:534
+                             ListToolsRequest                                   
+INFO:     172.17.0.1:63188 - "POST /messages/?session_id=06b85380f6834594b5e45445bf73e6a7 HTTP/1.1" 202 Accepted
+[06/14/25 08:41:11] INFO     Processing request of type            server.py:534
+                             ListToolsRequest                                   
+INFO:     172.17.0.1:63194 - "POST /messages/?session_id=06b85380f6834594b5e45445bf73e6a7 HTTP/1.1" 202 Accepted
+[06/14/25 08:41:12] INFO     Processing request of type            server.py:534
+                             ListToolsRequest                                   
+INFO:     172.17.0.1:63200 - "POST /messages/?session_id=06b85380f6834594b5e45445bf73e6a7 HTTP/1.1" 202 Accepted
+INFO:     172.17.0.1:63202 - "POST /messages/?session_id=06b85380f6834594b5e45445bf73e6a7 HTTP/1.1" 202 Accepted
+[06/14/25 08:41:13] INFO     Processing request of type            server.py:534
+                             ListToolsRequest                                   
+                    INFO     Processing request of type            server.py:534
+                             ListToolsRequest                                   
+INFO:     172.17.0.1:64240 - "POST /messages/?session_id=06b85380f6834594b5e45445bf73e6a7 HTTP/1.1" 202 Accepted
+[06/14/25 08:41:59] INFO     Processing request of type            server.py:534
+                             CallToolRequest                                    
+[FETCH]... ↓ https://facebook.github.io/prophet/                                                                  | ✓ | ⏱: 1.02s
+[SCRAPE].. ◆ https://facebook.github.io/prophet/                                                                  | ✓ | ⏱: 0.01s
+[COMPLETE] ● https://facebook.github.io/prophet/                                                                  | ✓ | ⏱: 1.03s
+[FETCH]... ↓ http://facebook.github.io/prophet/                                                                   | ✓ | ⏱: 0.60s
+[SCRAPE].. ◆ http://facebook.github.io/prophet/                                                                   | ✓ | ⏱: 0.01s
+[COMPLETE] ● http://facebook.github.io/prophet/                                                                   | ✓ | ⏱: 0.61s
+[FETCH]... ↓ https://facebook.github.io/prophet/docs/                                                             | ✓ | ⏱: 0.72s
+[SCRAPE].. ◆ https://facebook.github.io/prophet/docs/                                                             | ✓ | ⏱: 0.05s
+[COMPLETE] ● https://facebook.github.io/prophet/docs/                                                             | ✓ | ⏱: 0.78s
+[FETCH]... ↓ https://facebook.github.io/prophet/docs/quick_start.html                                             | ✓ | ⏱: 0.46s
+[SCRAPE].. ◆ https://facebook.github.io/prophet/docs/quick_start.html                                             | ✓ | ⏱: 0.05s
+[COMPLETE] ● https://facebook.github.io/prophet/docs/quick_start.html                                             | ✓ | ⏱: 0.51s
+[FETCH]... ↓ https://facebook.github.io/prophet/docs/installation.html                                            | ✓ | ⏱: 0.74s
+[SCRAPE].. ◆ https://facebook.github.io/prophet/docs/installation.html                                            | ✓ | ⏱: 0.03s
+[COMPLETE] ● https://facebook.github.io/prophet/docs/installation.html                                            | ✓ | ⏱: 0.77s
+[FETCH]... ↓ http://facebook.github.io/prophet/docs/additional_topics.html                                        | ✓ | ⏱: 0.71s
+[SCRAPE].. ◆ http://facebook.github.io/prophet/docs/additional_topics.html                                        | ✓ | ⏱: 0.12s
+[COMPLETE] ● http://facebook.github.io/prophet/docs/additional_topics.html                                        | ✓ | ⏱: 0.83s
+[FETCH]... ↓ http://facebook.github.io/prophet/docs/contributing.html                                             | ✓ | ⏱: 0.86s
+[SCRAPE].. ◆ http://facebook.github.io/prophet/docs/contributing.html                                             | ✓ | ⏱: 0.05s
+[COMPLETE] ● http://facebook.github.io/prophet/docs/contributing.html                                             | ✓ | ⏱: 0.91s
+[FETCH]... ↓ http://facebook.github.io/prophet/docs/installation.html                                             | ✓ | ⏱: 0.64s
+[SCRAPE].. ◆ http://facebook.github.io/prophet/docs/installation.html                                             | ✓ | ⏱: 0.03s
+[COMPLETE] ● http://facebook.github.io/prophet/docs/installation.html                                             | ✓ | ⏱: 0.67s
+[FETCH]... ↓ http://facebook.github.io/prophet/docs/diagnostics.html                                              | ✓ | ⏱: 0.88s
+[SCRAPE].. ◆ http://facebook.github.io/prophet/docs/diagnostics.html                                              | ✓ | ⏱: 0.09s
+[COMPLETE] ● http://facebook.github.io/prophet/docs/diagnostics.html                                              | ✓ | ⏱: 0.97s
+[FETCH]... ↓ http://facebook.github.io/prophet/docs/handling_shocks.html                                          | ✓ | ⏱: 0.87s
+[SCRAPE].. ◆ http://facebook.github.io/prophet/docs/handling_shocks.html                                          | ✓ | ⏱: 0.10s
+[COMPLETE] ● http://facebook.github.io/prophet/docs/handling_shocks.html                                          | ✓ | ⏱: 0.97s
+[FETCH]... ↓ http://facebook.github.io/prophet/docs/multiplicative_seasonality.html                               | ✓ | ⏱: 0.91s
+[SCRAPE].. ◆ http://facebook.github.io/prophet/docs/multiplicative_seasonality.html                               | ✓ | ⏱: 0.04s
+[COMPLETE] ● http://facebook.github.io/prophet/docs/multiplicative_seasonality.html                               | ✓ | ⏱: 0.95s
+[FETCH]... ↓ http://facebook.github.io/prophet/docs/quick_start.html                                              | ✓ | ⏱: 0.64s
+[SCRAPE].. ◆ http://facebook.github.io/prophet/docs/quick_start.html                                              | ✓ | ⏱: 0.06s
+[COMPLETE] ● http://facebook.github.io/prophet/docs/quick_start.html                                              | ✓ | ⏱: 0.70s
+[FETCH]... ↓ http://facebook.github.io/prophet/docs/non-daily_data.html                                           | ✓ | ⏱: 0.93s
+[SCRAPE].. ◆ http://facebook.github.io/prophet/docs/non-daily_data.html                                           | ✓ | ⏱: 0.07s
+[COMPLETE] ● http://facebook.github.io/prophet/docs/non-daily_data.html                                           | ✓ | ⏱: 1.00s
+[FETCH]... ↓ http://facebook.github.io/prophet/docs/outliers.html                                                 | ✓ | ⏱: 1.02s
+[SCRAPE].. ◆ http://facebook.github.io/prophet/docs/outliers.html                                                 | ✓ | ⏱: 0.05s
+[COMPLETE] ● http://facebook.github.io/prophet/docs/outliers.html                                                 | ✓ | ⏱: 1.07s
+[FETCH]... ↓ http://facebook.github.io/prophet/docs/saturating_forecasts.html                                     | ✓ | ⏱: 0.87s
+[SCRAPE].. ◆ http://facebook.github.io/prophet/docs/saturating_forecasts.html                                     | ✓ | ⏱: 0.05s
+[COMPLETE] ● http://facebook.github.io/prophet/docs/saturating_forecasts.html                                     | ✓ | ⏱: 0.92s
+[FETCH]... ↓ https://facebook.github.io/prophet/docs/installation.html/                                           | ✓ | ⏱: 0.50s
+[SCRAPE].. ◆ https://facebook.github.io/prophet/docs/installation.html/                                           | ✓ | ⏱: 0.00s
+[COMPLETE] ● https://facebook.github.io/prophet/docs/installation.html/                                           | ✓ | ⏱: 0.50s
+[FETCH]... ↓ http://facebook.github.io/prophet/docs/trend_changepoints.html                                       | ✓ | ⏱: 0.92s
+[SCRAPE].. ◆ http://facebook.github.io/prophet/docs/trend_changepoints.html                                       | ✓ | ⏱: 0.04s
+[COMPLETE] ● http://facebook.github.io/prophet/docs/trend_changepoints.html                                       | ✓ | ⏱: 0.96s
+[FETCH]... ↓ http://facebook.github.io/prophet/docs/uncertainty_intervals.html                                    | ✓ | ⏱: 0.87s
+[SCRAPE].. ◆ http://facebook.github.io/prophet/docs/uncertainty_intervals.html                                    | ✓ | ⏱: 0.03s
+[COMPLETE] ● http://facebook.github.io/prophet/docs/uncertainty_intervals.html                                    | ✓ | ⏱: 0.90s
+[FETCH]... ↓ https://facebook.github.io/prophet/docs/installation.html/quick_start.html                           | ✓ | ⏱: 0.61s
+[SCRAPE].. ◆ https://facebook.github.io/prophet/docs/installation.html/quick_start.html                           | ✓ | ⏱: 0.00s
+[COMPLETE] ● https://facebook.github.io/prophet/docs/installation.html/quick_start.html                           | ✓ | ⏱: 0.62s
+[FETCH]... ↓ http://facebook.github.io/prophet/docs/seasonality,_holiday_effects,_and_regressors.html             | ✓ | ⏱: 1.06s
+[SCRAPE].. ◆ http://facebook.github.io/prophet/docs/seasonality,_holiday_effects,_and_regressors.html             | ✓ | ⏱: 0.14s
+[COMPLETE] ● http://facebook.github.io/prophet/docs/seasonality,_holiday_effects,_and_regressors.html             | ✓ | ⏱: 1.20s
+[FETCH]... ↓ https://facebook.github.io/docs/                                                                     | ✓ | ⏱: 3.12s
+[SCRAPE].. ◆ https://facebook.github.io/docs/                                                                     | ✓ | ⏱: 0.02s
+[COMPLETE] ● https://facebook.github.io/docs/                                                                     | ✓ | ⏱: 3.14s
+[06/14/25 08:42:07] INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating summary with LLM for facebook.github.io: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using default summary.
+[06/14/25 08:42:08] INFO     HTTP Request: PATCH                 _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/sources?source_id=eq.                
+                             facebook.github.io "HTTP/2 400 Bad                 
+                             Request"                                           
+Error updating source facebook.github.io: {'message': 'invalid input syntax for type integer: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: DELETE                _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages?url=in.                
+                             %28%22http%3A%2F%2Ffacebook.github.                
+                             io%2Fprophet%2Fdocs%2Fmultiplicativ                
+                             e_seasonality.html%22%2C%22http%3A%                
+                             2F%2Ffacebook.github.io%2Fprophet%2                
+                             Fdocs%2Fcontributing.html%22%2C%22h                
+                             ttps%3A%2F%2Ffacebook.github.io%2Fd                
+                             ocs%2F%22%2C%22http%3A%2F%2Ffaceboo                
+                             k.github.io%2Fprophet%2Fdocs%2Ftren                
+                             d_changepoints.html%22%2C%22https%3                
+                             A%2F%2Ffacebook.github.io%2Fprophet                
+                             %2Fdocs%2Finstallation.html%2F%22%2                
+                             C%22http%3A%2F%2Ffacebook.github.io                
+                             %2Fprophet%2Fdocs%2Fnon-daily_data.                
+                             html%22%2C%22http%3A%2F%2Ffacebook.                
+                             github.io%2Fprophet%2Fdocs%2Funcert                
+                             ainty_intervals.html%22%2C%22http%3                
+                             A%2F%2Ffacebook.github.io%2Fprophet                
+                             %2Fdocs%2Fquick_start.html%22%2C%22                
+                             https%3A%2F%2Ffacebook.github.io%2F                
+                             prophet%2Fdocs%2Fquick_start.html%2                
+                             2%2C%22https%3A%2F%2Ffacebook.githu                
+                             b.io%2Fprophet%2Fdocs%2F%22%2C%22ht                
+                             tp%3A%2F%2Ffacebook.github.io%2Fpro                
+                             phet%2Fdocs%2Fadditional_topics.htm                
+                             l%22%2C%22http%3A%2F%2Ffacebook.git                
+                             hub.io%2Fprophet%2Fdocs%2Fhandling_                
+                             shocks.html%22%2C%22http%3A%2F%2Ffa                
+                             cebook.github.io%2Fprophet%2Fdocs%2                
+                             Fseasonality%2C_holiday_effects%2C_                
+                             and_regressors.html%22%2C%22http%3A                
+                             %2F%2Ffacebook.github.io%2Fprophet%                
+                             2Fdocs%2Foutliers.html%22%2C%22http                
+                             %3A%2F%2Ffacebook.github.io%2Fproph                
+                             et%2Fdocs%2Finstallation.html%22%2C                
+                             %22https%3A%2F%2Ffacebook.github.io                
+                             %2Fprophet%2F%22%2C%22http%3A%2F%2F                
+                             facebook.github.io%2Fprophet%2F%22%                
+                             2C%22http%3A%2F%2Ffacebook.github.i                
+                             o%2Fprophet%2Fdocs%2Fdiagnostics.ht                
+                             ml%22%2C%22https%3A%2F%2Ffacebook.g                
+                             ithub.io%2Fprophet%2Fdocs%2Finstall                
+                             ation.html%22%2C%22https%3A%2F%2Ffa                
+                             cebook.github.io%2Fprophet%2Fdocs%2                
+                             Finstallation.html%2Fquick_start.ht                
+                             ml%22%2C%22http%3A%2F%2Ffacebook.gi                
+                             thub.io%2Fprophet%2Fdocs%2Fsaturati                
+                             ng_forecasts.html%22%29 "HTTP/2 200                
+                             OK"                                                
+
+
+Use contextual embeddings: True
+
+
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+[06/14/25 08:42:09] INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+[06/14/25 08:42:10] INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+[06/14/25 08:42:11] INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/embedding                
+                             s "HTTP/1.1 200 OK"                                
+[06/14/25 08:42:12] INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages?columns                
+                             =%22embedding%22%2C%22content%22%2C                
+                             %22source_id%22%2C%22chunk_number%2                
+                             2%2C%22metadata%22%2C%22url%22                     
+                             "HTTP/2 400 Bad Request"                           
+Error inserting batch into Supabase (attempt 1/3): {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+Retrying in 1.0 seconds...
+[06/14/25 08:42:14] INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages?columns                
+                             =%22embedding%22%2C%22content%22%2C                
+                             %22source_id%22%2C%22chunk_number%2                
+                             2%2C%22metadata%22%2C%22url%22                     
+                             "HTTP/2 400 Bad Request"                           
+Error inserting batch into Supabase (attempt 2/3): {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+Retrying in 2.0 seconds...
+[06/14/25 08:42:16] INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages?columns                
+                             =%22embedding%22%2C%22content%22%2C                
+                             %22source_id%22%2C%22chunk_number%2                
+                             2%2C%22metadata%22%2C%22url%22                     
+                             "HTTP/2 400 Bad Request"                           
+Failed to insert batch after 3 attempts: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+Attempting to insert records individually...
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL https://facebook.github.io/prophet/: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL https://facebook.github.io/prophet/docs/: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL https://facebook.github.io/prophet/docs/: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL https://facebook.github.io/prophet/docs/: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+[06/14/25 08:42:17] INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL https://facebook.github.io/prophet/docs/: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL https://facebook.github.io/prophet/docs/installation.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL https://facebook.github.io/prophet/docs/installation.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL https://facebook.github.io/prophet/docs/quick_start.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL https://facebook.github.io/prophet/docs/quick_start.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL https://facebook.github.io/prophet/docs/quick_start.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL https://facebook.github.io/prophet/docs/quick_start.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/additional_topics.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/additional_topics.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/additional_topics.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/additional_topics.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/additional_topics.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/contributing.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/contributing.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/contributing.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+[06/14/25 08:42:18] INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+[06/14/25 08:42:19] INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+[06/14/25 08:42:20] INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+[06/14/25 08:42:21] INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/embedding                
+                             s "HTTP/1.1 200 OK"                                
+[06/14/25 08:42:22] INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages?columns                
+                             =%22embedding%22%2C%22content%22%2C                
+                             %22source_id%22%2C%22chunk_number%2                
+                             2%2C%22metadata%22%2C%22url%22                     
+                             "HTTP/2 400 Bad Request"                           
+Error inserting batch into Supabase (attempt 1/3): {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+Retrying in 1.0 seconds...
+[06/14/25 08:42:23] INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages?columns                
+                             =%22embedding%22%2C%22content%22%2C                
+                             %22source_id%22%2C%22chunk_number%2                
+                             2%2C%22metadata%22%2C%22url%22                     
+                             "HTTP/2 400 Bad Request"                           
+Error inserting batch into Supabase (attempt 2/3): {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+Retrying in 2.0 seconds...
+[06/14/25 08:42:25] INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages?columns                
+                             =%22embedding%22%2C%22content%22%2C                
+                             %22source_id%22%2C%22chunk_number%2                
+                             2%2C%22metadata%22%2C%22url%22                     
+                             "HTTP/2 400 Bad Request"                           
+Failed to insert batch after 3 attempts: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+Attempting to insert records individually...
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/contributing.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+[06/14/25 08:42:26] INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/installation.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/installation.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/diagnostics.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/diagnostics.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/diagnostics.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/diagnostics.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/diagnostics.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/diagnostics.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/handling_shocks.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/handling_shocks.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/handling_shocks.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/handling_shocks.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/handling_shocks.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/multiplicative_seasonality.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/multiplicative_seasonality.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+[06/14/25 08:42:27] INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/multiplicative_seasonality.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/quick_start.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/quick_start.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/quick_start.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+[06/14/25 08:42:28] INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+[06/14/25 08:42:29] INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/embedding                
+                             s "HTTP/1.1 200 OK"                                
+[06/14/25 08:42:30] INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages?columns                
+                             =%22embedding%22%2C%22content%22%2C                
+                             %22source_id%22%2C%22chunk_number%2                
+                             2%2C%22metadata%22%2C%22url%22                     
+                             "HTTP/2 400 Bad Request"                           
+Error inserting batch into Supabase (attempt 1/3): {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+Retrying in 1.0 seconds...
+[06/14/25 08:42:31] INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages?columns                
+                             =%22embedding%22%2C%22content%22%2C                
+                             %22source_id%22%2C%22chunk_number%2                
+                             2%2C%22metadata%22%2C%22url%22                     
+                             "HTTP/2 400 Bad Request"                           
+Error inserting batch into Supabase (attempt 2/3): {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+Retrying in 2.0 seconds...
+[06/14/25 08:42:33] INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages?columns                
+                             =%22embedding%22%2C%22content%22%2C                
+                             %22source_id%22%2C%22chunk_number%2                
+                             2%2C%22metadata%22%2C%22url%22                     
+                             "HTTP/2 400 Bad Request"                           
+Failed to insert batch after 3 attempts: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+Attempting to insert records individually...
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/quick_start.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+[06/14/25 08:42:34] INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/non-daily_data.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/non-daily_data.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/non-daily_data.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/outliers.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/outliers.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/outliers.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL https://facebook.github.io/prophet/docs/installation.html/: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/saturating_forecasts.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/saturating_forecasts.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/saturating_forecasts.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/trend_changepoints.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/trend_changepoints.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/trend_changepoints.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/uncertainty_intervals.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+[06/14/25 08:42:35] INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/uncertainty_intervals.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/uncertainty_intervals.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/seasonality,_holiday_effects,_and_regressors.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/seasonality,_holiday_effects,_and_regressors.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/seasonality,_holiday_effects,_and_regressors.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+[06/14/25 08:42:36] INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/embedding                
+                             s "HTTP/1.1 200 OK"                                
+[06/14/25 08:42:37] INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages?columns                
+                             =%22embedding%22%2C%22content%22%2C                
+                             %22source_id%22%2C%22chunk_number%2                
+                             2%2C%22metadata%22%2C%22url%22                     
+                             "HTTP/2 400 Bad Request"                           
+Error inserting batch into Supabase (attempt 1/3): {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+Retrying in 1.0 seconds...
+[06/14/25 08:42:38] INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages?columns                
+                             =%22embedding%22%2C%22content%22%2C                
+                             %22source_id%22%2C%22chunk_number%2                
+                             2%2C%22metadata%22%2C%22url%22                     
+                             "HTTP/2 400 Bad Request"                           
+Error inserting batch into Supabase (attempt 2/3): {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+Retrying in 2.0 seconds...
+[06/14/25 08:42:40] INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages?columns                
+                             =%22embedding%22%2C%22content%22%2C                
+                             %22source_id%22%2C%22chunk_number%2                
+                             2%2C%22metadata%22%2C%22url%22                     
+                             "HTTP/2 400 Bad Request"                           
+Failed to insert batch after 3 attempts: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+Attempting to insert records individually...
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/seasonality,_holiday_effects,_and_regressors.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/seasonality,_holiday_effects,_and_regressors.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/seasonality,_holiday_effects,_and_regressors.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL http://facebook.github.io/prophet/docs/seasonality,_holiday_effects,_and_regressors.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL https://facebook.github.io/prophet/docs/installation.html/quick_start.html: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL https://facebook.github.io/docs/: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL https://facebook.github.io/docs/: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+INFO:     172.17.0.1:61716 - "POST /messages/?session_id=06b85380f6834594b5e45445bf73e6a7 HTTP/1.1" 202 Accepted
+[06/14/25 08:42:44] INFO     Processing request of type            server.py:534
+                             CallToolRequest                                    
+[FETCH]... ↓ https://facebook.github.io/prophet/                                                                  | ✓ | ⏱: 0.22s
+[SCRAPE].. ◆ https://facebook.github.io/prophet/                                                                  | ✓ | ⏱: 0.01s
+[COMPLETE] ● https://facebook.github.io/prophet/                                                                  | ✓ | ⏱: 0.23s
+[06/14/25 08:42:45] INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating summary with LLM for facebook.github.io: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using default summary.
+                    INFO     HTTP Request: PATCH                 _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/sources?source_id=eq.                
+                             facebook.github.io "HTTP/2 400 Bad                 
+                             Request"                                           
+Error updating source facebook.github.io: {'message': 'invalid input syntax for type integer: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+                    INFO     HTTP Request: DELETE                _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages?url=in.                
+                             %28%22https%3A%2F%2Ffacebook.github                
+                             .io%2Fprophet%2F%22%29 "HTTP/2 200                 
+                             OK"                                                
+
+
+Use contextual embeddings: True
+
+
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/chat/comp                
+                             letions "HTTP/1.1 400 Bad Request"                 
+Error generating contextual embedding: Error code: 400 - {'error': {'message': "Unsupported value: 'temperature' does not support 0.3 with this model. Only the default (1) value is supported.", 'type': 'invalid_request_error', 'param': 'temperature', 'code': 'unsupported_value'}}. Using original chunk instead.
+[06/14/25 08:42:46] INFO     HTTP Request: POST                  _client.py:1025
+                             https://api.openai.com/v1/embedding                
+                             s "HTTP/1.1 200 OK"                                
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages?columns                
+                             =%22embedding%22%2C%22content%22%2C                
+                             %22source_id%22%2C%22chunk_number%2                
+                             2%2C%22metadata%22%2C%22url%22                     
+                             "HTTP/2 400 Bad Request"                           
+Error inserting batch into Supabase (attempt 1/3): {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+Retrying in 1.0 seconds...
+[06/14/25 08:42:47] INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages?columns                
+                             =%22embedding%22%2C%22content%22%2C                
+                             %22source_id%22%2C%22chunk_number%2                
+                             2%2C%22metadata%22%2C%22url%22                     
+                             "HTTP/2 400 Bad Request"                           
+Error inserting batch into Supabase (attempt 2/3): {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+Retrying in 2.0 seconds...
+[06/14/25 08:42:49] INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages?columns                
+                             =%22embedding%22%2C%22content%22%2C                
+                             %22source_id%22%2C%22chunk_number%2                
+                             2%2C%22metadata%22%2C%22url%22                     
+                             "HTTP/2 400 Bad Request"                           
+Failed to insert batch after 3 attempts: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+Attempting to insert records individually...
+                    INFO     HTTP Request: POST                  _client.py:1025
+                             https://gtecjaoninuklmfaacyw.supaba                
+                             se.co/rest/v1/crawled_pages "HTTP/2                
+                             400 Bad Request"                                   
+Failed to insert individual record for URL https://facebook.github.io/prophet/: {'message': 'invalid input syntax for type uuid: "facebook.github.io"', 'code': '22P02', 'hint': None, 'details': None}
+
